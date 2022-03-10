@@ -96,7 +96,7 @@ jobs:
 
       - name: Copy files to S3 with the AWS CLI
         run: |
-          aws s3 sync "${PWD}/artifacts" s3://${{ secrets.AWS_BUCKET }}
+          aws s3 sync "${PWD}/artifacts" s3://${{ secrets.AWS_BUCKET }} --acl public-read
 
 
   build_x64:
@@ -161,4 +161,4 @@ jobs:
 
       - name: Copy files to S3 with the AWS CLI
         run: |
-          aws s3 sync "${PWD}/artifacts" s3://${{ secrets.AWS_BUCKET }}
+          aws s3 sync "${PWD}/artifacts" s3://${{ secrets.AWS_BUCKET }} --acl public-read
