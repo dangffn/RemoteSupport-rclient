@@ -1,4 +1,4 @@
-[![.github/workflows/build-deb-packages.yml](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/build-deb-packages.yml/badge.svg)](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/build-deb-packages.yml)
+[![Build DEB Packages](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/build-debs.yml/badge.svg)](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/build-debs.yml)
 
 # Remote Support Linux Client
 
