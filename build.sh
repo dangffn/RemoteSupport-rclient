@@ -34,6 +34,7 @@ sed -i "s/Architecture: .*$/Architecture: $arch/g" deb/DEBIAN/control
 sed -i "s/Version: .*/Version: $version/g" deb/DEBIAN/control
 # output package
 deb_file="$outputdir"remotesupport_$version\_$arch.deb
+deb_file_latest="$outputdir"remotesupport_latest_$arch.deb
 
 # build the python binary
 echo Building executable
@@ -51,3 +52,6 @@ mv ./app/dist/rclient ./deb/usr/bin/
 # build the debian package
 echo Building $deb_file
 dpkg-deb --build --root-owner-group deb "$deb_file"
+
+# copy to latest file
+cp "$deb_file" "$deb_file_latest"
