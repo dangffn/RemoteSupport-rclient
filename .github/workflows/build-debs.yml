@@ -11,7 +11,7 @@ on:
 jobs:
 
   build_arm:
-    # if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     # The host should always be linux
     runs-on: ubuntu-20.04
     name: Build on ARM
@@ -87,7 +87,7 @@ jobs:
 
 
   build_x64:
-    # if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     # The host should always be linux
     runs-on: ubuntu-20.04
     name: Build on x86_64
