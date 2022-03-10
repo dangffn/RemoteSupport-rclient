@@ -1,0 +1,28 @@
+#!/bin/sh -e
+# get the workgroup ID from the user input via debconf
+. /usr/share/debconf/confmodule
+
+db_get remotesupport/workgroupid
+
+echo Using Workgroup ID $RET
+
+[ -z "$RET" ] && echo "No workgroup ID specified" && exit 1
+
+/usr/bin/rclient --workgroup "$RET" --provision-only
+
+db_stop
+
+if [ "$?" -eq "0" ]; then
+  echo "Successfully provisioned"
+
+  # enable the service
+  echo Enabling the remotesupport service
+  systemctl enable remotesupport.service
+
+  # start the service
+  echo Starting the remotesupport service
+  systemctl start remotesupport.service
+
+else
+  echo "Unsuccessful provision"
+fi

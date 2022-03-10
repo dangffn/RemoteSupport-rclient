@@ -1,0 +1,6 @@
+Package: remotesupport
+Version: 1.1
+Architecture: amd64
+Maintainer: Dan Griffin <dangffn@gmail.com>
+Description: Remotely manage and support Linux machines from a web dashboard
+Depends: debconf, lsb-release, hdparm, dmidecode

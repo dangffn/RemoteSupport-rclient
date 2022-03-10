@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+# stop the service
+if [ "$(systemctl is-active remotesupport)" = "active" ]; then
+	echo Stopping remotesupport service
+	systemctl stop remotesupport
+fi
+
+# disable the service
+if [ "$(systemctl is-enabled remotesupport)" = "enabled" ]; then
+	echo Disabling remotesupport service
+	systemctl disable remotesupport
+fi

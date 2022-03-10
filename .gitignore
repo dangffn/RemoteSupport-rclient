@@ -1,0 +1,15 @@
+# virtual environments
+venv/
+
+# compiled files
+app/build/
+app/dist/
+
+# test config files
+app/config/
+
+# build .deb files
+**.deb
+
+# pycache
+**/__pycache__

@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+# Workgroup ID
+db_input critical remotesupport/workgroupid || true
+db_go || true
+
+# Check their answer.
+db_get remotesupport/workgroupid
+if [ -z "$RET" ]; then
+    # Show the long description
+    db_input high remotesupport/workgroupid || true
+    db_go || true
+fi

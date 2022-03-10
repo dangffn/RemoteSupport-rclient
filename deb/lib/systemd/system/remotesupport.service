@@ -1,0 +1,17 @@
+[Unit]
+Description=RemoteSupport Core Service
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/environment
+ExecStart=/usr/bin/rclient
+
+# restart every 10 seconds once stopped
+Restart=always
+RestartSec=10
+# restart indefinitely
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

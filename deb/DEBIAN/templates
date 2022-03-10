@@ -1,0 +1,9 @@
+Template: remotesupport/workgroupid
+Type: string
+Description: The remote support Workgroup ID
+
+Template: remotesupport/workgroupid_description
+Type: note
+Description: This is the workgroup ID on the remote support dashboard where this machine will be linked to
+ if you don't have a workgroup ID, create an account on the remote support dashboard, then
+ click your user name at the top right to find it.
