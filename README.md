@@ -1,4 +1,4 @@
-[![Increment Semantic Version](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/semantic-version.yml/badge.svg?branch=master)](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/semantic-version.yml)
+[![.github/workflows/build-deb-packages.yml](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/build-deb-packages.yml/badge.svg)](https://github.com/dangffn/RemoteSupport-rclient/actions/workflows/build-deb-packages.yml)
 
 # Remote Support Linux Client
 
