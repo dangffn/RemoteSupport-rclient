@@ -40,6 +40,7 @@ jobs:
         id: build
         env: 
           SEMANTIC_VERSION: ${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}
+          PYI_STATIC_ZLIB: 1  # attempt to fix error while building
         with:
           arch: ${{ matrix.arch }}
           distro: ${{ matrix.distro }}
@@ -68,6 +69,7 @@ jobs:
             # update and install dependencies
             apt update
             apt install python3 python3-pip -y
+            apt install zlib1g-dev -y
             pip3 install pyinstaller 
 
           # Produce a binary artifact and place it in the mounted volume
