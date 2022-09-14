@@ -150,14 +150,14 @@ class ShellManager(Module):
 
     def new(self):
         _id = max(self.shells.keys()) + 1 if self.shells else 0
-        logger.debug(f"Created new shell with id %s", _id)
+        logger.info(f"Created new shell with id %s", _id)
         th = Thread(target=self._run, args=(_id, ))
         self.threads[_id] = th
         th.start()
         return _id
 
     def close(self, _id):
-        logger.debug(f"Closing shell with id {_id}")
+        logger.info(f"Closing shell with id {_id}")
         if _id not in self.shells:
             raise ShellDoesntExist(_id)
         self.shells[_id].close()

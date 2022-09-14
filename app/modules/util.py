@@ -1,4 +1,5 @@
 import logging
+import shlex
 import subprocess
 import re
 
@@ -26,13 +27,9 @@ def run_shell(command_string, raise_exception=False):
     # these arguments can be formatted as a single string as long as the syntax is exactly the same as on the cli
     # the system shell will default to /bin/sh for these commands
     try:
-        # be careful when running with shell=True
-        # potential security vulnerability if there are user defined strings interpreted here
-        cmd = subprocess.run(command_string, capture_output=True, shell=True)
-        if cmd.returncode == 0 and cmd.stdout is not None:
-            value = cmd.stdout.decode("utf8").strip("\n")
-            return cmd.returncode, value or None
-        return None, None
+        command = shlex.split(command_string)
+        cmd = subprocess.run(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        return cmd.returncode, cmd.stdout.decode().strip("\n")
     except Exception as e:
         logger.error(f"Error running command ({command_string}) ({e})")
         if raise_exception is False:

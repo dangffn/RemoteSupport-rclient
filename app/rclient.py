@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import base64
 import json
 import logging
@@ -16,15 +17,10 @@ import websocket
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
-
 from websocket import create_connection
-import argparse
 
-import logging
 from modules import registered_modules
 from modules.util import run_shell
-import subprocess
-
 
 """
 Linux dependencies
