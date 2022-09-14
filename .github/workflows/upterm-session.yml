@@ -1,0 +1,35 @@
+name: Upterm Debugging
+
+on: 
+  # manually run the workflow
+  workflow_dispatch:
+
+jobs:
+
+  build_arm:
+    # The host should always be linux
+    runs-on: ubuntu-18.04
+    name: Build on ARM
+   
+    permissions:
+      id-token: write
+      contents: read
+  
+    # arch / distro combinations
+    strategy:
+      matrix:
+        include:
+#          - arch: aarch64
+#            distro: ubuntu18.04
+          - arch: armv7
+            distro: ubuntu18.04
+
+    steps:
+      - uses: actions/checkout@v2.1.0
+
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        with:
+          arch: ${{ matrix.arch }}
+          distro: ${{ matrix.distro }}
+
