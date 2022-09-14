@@ -6,7 +6,7 @@ on:
     - 'v*'
     
   # manually run the workflow
-  # workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
 
